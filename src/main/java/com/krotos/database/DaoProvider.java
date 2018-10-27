@@ -11,7 +11,7 @@ public class DaoProvider {
     private RunDAO runDAO;
     private MemberDAO memberDAO;
 
-    public DaoProvider() {
+    private DaoProvider() {
         runDAO=new RunJdbcDriverDAO();
         memberDAO=new MemberJdbcDriverDAO();
     }
