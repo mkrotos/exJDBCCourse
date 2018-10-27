@@ -1,9 +1,7 @@
 package com.krotos.database;
 
 import com.krotos.database.jdbc.MemberDAO;
-import com.krotos.database.jdbc.MemberJdbcDriverDAO;
 import com.krotos.database.jdbc.RunDAO;
-import com.krotos.database.jdbc.RunJdbcDriverDAO;
 import com.krotos.models.Member;
 import com.krotos.models.Run;
 
@@ -16,7 +14,7 @@ public class GenerateRandom {
     private Random random=new Random();
 
     public void members(int amount){
-        MemberDAO memberDAO=new MemberJdbcDriverDAO();
+        MemberDAO memberDAO=DaoProvider.getInstance().getMemberDAO();
         for (int i=0;i<amount;i++){
             Member member=new Member(random.nextInt(Integer.MAX_VALUE),
                     UUID.randomUUID().toString(),
@@ -28,7 +26,7 @@ public class GenerateRandom {
     }
 
     public void runs(int amount){
-        RunDAO runDAO=new RunJdbcDriverDAO();
+        RunDAO runDAO=DaoProvider.getInstance().getRunDAO();
         for (int i=0;i<amount;i++){
             Run run=new Run(random.nextInt(Integer.MAX_VALUE),
                     UUID.randomUUID().toString(),
