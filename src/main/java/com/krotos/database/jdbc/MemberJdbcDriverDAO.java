@@ -1,25 +1,28 @@
-package com.krotos.database.jdbc.utils;
+package com.krotos.database.jdbc;
+
+import com.krotos.database.jdbc.utils.JdbcUtils;
+import com.krotos.models.Member;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class JdbcDriverDAO {
+public class MemberJdbcDriverDAO {
 
     private Connection connection;
 
-    public JdbcDriverDAO(){
+    public MemberJdbcDriverDAO(){
         connection=JdbcUtils.getInstance().getConnection();
     }
 
-    public void save(long id,String name, String lastName,int startNumber,long runId){
+    public void save(Member member){
         try {
             PreparedStatement statement=connection.prepareStatement("INSERT into members values (?,?,?,?,?)");
-            statement.setLong(1,id);
-            statement.setString(2,name);
-            statement.setString(3,lastName);
-            statement.setInt(4,startNumber);
-            statement.setLong(5,runId);
+            statement.setLong(1,member.getId());
+            statement.setString(2,member.getName());
+            statement.setString(3,member.getLastName());
+            statement.setInt(4,member.getStartNumber());
+            statement.setLong(5,member.getRunId());
             statement.execute();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -36,7 +39,7 @@ public class JdbcDriverDAO {
     }
 
     public List<Member> getAll(){
-        List<Member> memberList=new ArrayList<Member>();
+        List<Member> memberList=new ArrayList<>();
         try {
             PreparedStatement statement = connection.prepareStatement("select * from members");
             ResultSet resultSet = statement.executeQuery();
@@ -53,4 +56,6 @@ public class JdbcDriverDAO {
         }
         return memberList;
     }
+
+
 }

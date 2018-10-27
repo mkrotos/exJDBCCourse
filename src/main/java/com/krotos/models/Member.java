@@ -1,4 +1,4 @@
-package com.krotos.database.jdbc.utils;
+package com.krotos.models;
 
 public class Member {
 
