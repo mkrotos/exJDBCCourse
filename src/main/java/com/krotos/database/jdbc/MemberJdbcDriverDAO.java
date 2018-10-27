@@ -96,4 +96,13 @@ public class MemberJdbcDriverDAO implements MemberDAO {
         }
         return memberList;
     }
+
+    @Override
+    public void deleteAll() {
+        try {
+            connection.prepareStatement("delete from members").execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

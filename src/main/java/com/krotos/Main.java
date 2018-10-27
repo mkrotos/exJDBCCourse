@@ -19,9 +19,9 @@ public class Main {
 
         MemberDAO memberDAO = DaoProvider.getInstance().getMemberDAO();
         Member member = new Member(121, "234", "ewer", 5, 1);
-        memberDAO.save(member);
-        member.setName("Updated");
-        memberDAO.update(member);
+//        memberDAO.save(member);
+//        member.setName("Updated");
+//        memberDAO.update(member);
 //        memberDAO.delete(2);
 
         List<Member> memberList = memberDAO.getAll();

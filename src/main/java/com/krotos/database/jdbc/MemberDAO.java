@@ -11,4 +11,5 @@ public interface MemberDAO {
     void update(Member member);
     void delete(long id);
     List<Member> getAll();
+    void deleteAll();
 }

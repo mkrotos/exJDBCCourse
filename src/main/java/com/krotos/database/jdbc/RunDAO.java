@@ -11,4 +11,5 @@ public interface RunDAO {
     void update(Run run);
     void delete(long id);
     List<Run> getAll();
+    void deleteAll();
 }

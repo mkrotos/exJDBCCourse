@@ -104,4 +104,14 @@ public class RunJdbcDriverDAO implements RunDAO {
         }
         return runs;
     }
+
+    @Override
+    public void deleteAll() {
+        Connection connection=JdbcUtils.getInstance().getConnection();
+        try {
+            connection.prepareStatement("delete from runs").execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
