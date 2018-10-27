@@ -7,7 +7,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MemberJdbcDriverDAO {
+public class MemberJdbcDriverDAO implements MemberDAO {
 
     private Connection connection;
 
@@ -56,6 +56,4 @@ public class MemberJdbcDriverDAO {
         }
         return memberList;
     }
-
-
 }

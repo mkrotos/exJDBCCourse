@@ -7,7 +7,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RunJdbcDriverDAO {
+public class RunJdbcDriverDAO implements RunDAO {
 
     public void save(Run run){
         Connection connection=JdbcUtils.getInstance().getConnection();
